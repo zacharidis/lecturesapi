@@ -1,3 +1,6 @@
+using lecturesapi.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace lecturesapi
 {
     public class Program
@@ -12,6 +15,13 @@ namespace lecturesapi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            // insert db context 
+
+            builder.Services.AddDbContext<LanguagesDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("LanguagesConn"));
+
+            }); 
 
             var app = builder.Build();
 
