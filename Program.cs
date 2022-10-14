@@ -1,4 +1,5 @@
 using lecturesapi.Data;
+using lecturesapi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace lecturesapi
@@ -21,7 +22,11 @@ namespace lecturesapi
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("LanguagesConn"));
 
-            }); 
+            });
+
+            //whenever i use the Interface give me the impl
+            builder.Services.AddScoped<ILanguageRepository, LanguageRepositoryIMPL>();
+
 
             var app = builder.Build();
 
