@@ -8,7 +8,7 @@
 
         public string ShortName { get; set; }
 
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
 
         public bool isOpenSource { get; set; }  
 
